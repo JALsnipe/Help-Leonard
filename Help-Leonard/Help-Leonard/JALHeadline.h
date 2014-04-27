@@ -12,6 +12,6 @@
 
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *sport;
-@property (nonatomic, copy) NSURL *URL;
+@property (nonatomic, copy) NSString *URL;
 
 @end

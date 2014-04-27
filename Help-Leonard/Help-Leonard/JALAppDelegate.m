@@ -12,6 +12,10 @@
 
 static NSString *ESPNAPIKey = @"zheuk35rcn3t43ukfgejpwph";
 
+NSArray* parsedHeadlines;
+NSArray* parsedSports;
+NSArray* parsedURLs;
+
 @implementation JALAppDelegate
 {
     NSMutableArray *_headlines;
@@ -23,50 +27,51 @@ static NSString *ESPNAPIKey = @"zheuk35rcn3t43ukfgejpwph";
     
     _headlines = [NSMutableArray arrayWithCapacity:20];
     
-    // Headline 1
-    JALHeadline *headline = [[JALHeadline alloc] init];
-    headline.title = @"Sample Title";
-    headline.sport = @"MLB";
-//    headline.URL = @"http://myawesomesite.com/";
-    
-    NSURL *baseURL = [NSURL URLWithString:@"file:///path/to/web_root/"];
-    NSURL *url = [NSURL URLWithString:@"folder/file.html" relativeToURL:baseURL];
-    NSURL *absURL = [url absoluteURL];
-    headline.URL = absURL;
-    NSLog(@"absURL = %@", absURL);
-    
-    [_headlines addObject:headline];
-    
-    // Headline 2
-    headline = [[JALHeadline alloc] init];
-    headline.title = @"Josh Hired by the Yankees";
-    headline.sport = @"MLB";
-    //    headline.URL = @"http://myawesomesite.com/";
-    
-//    NSURL *baseURL = [NSURL URLWithString:@"file:///path/to/web_root/"];
-//    NSURL *url = [NSURL URLWithString:@"folder/file.html" relativeToURL:baseURL];
-//    NSURL *absURL = [url absoluteURL];
-    headline.URL = absURL;
-    NSLog(@"absURL = %@", absURL);
-    
-    [_headlines addObject:headline];
-    
-    // Headline 3
-    headline = [[JALHeadline alloc] init];
-    headline.title = @"Josh Hired by the Yankees";
-    headline.sport = @"MLB";
-    //    headline.URL = @"http://myawesomesite.com/";
-    
-    //    NSURL *baseURL = [NSURL URLWithString:@"file:///path/to/web_root/"];
-    //    NSURL *url = [NSURL URLWithString:@"folder/file.html" relativeToURL:baseURL];
-    //    NSURL *absURL = [url absoluteURL];
-    headline.URL = absURL;
-    NSLog(@"absURL = %@", absURL);
-    
-    [_headlines addObject:headline];
+    // for headline in parsedHeadlines
+    // alloc headline object
+    // add headline to object
+    // add sport dummy type to object
+    // add url to object
     
     // get headlines
     [self getHeadlines];
+    
+    // url debugging
+    NSLog(@"start printing urls");
+    for (NSString *url in parsedURLs) {
+        NSLog(@"%@\n", url);
+    }
+    NSLog(@"end printing urls");
+    
+    // add url and headline to table
+    for(int i = 0; i < [parsedHeadlines count]; i++) {
+        JALHeadline *headline = [[JALHeadline alloc] init];
+        headline.title = [parsedHeadlines objectAtIndex: i];
+        headline.sport = @"Sports";
+        headline.URL = [parsedURLs objectAtIndex: i];
+        
+        [_headlines addObject:headline];
+
+    }
+    
+//    for (NSString *title in parsedHeadlines) {
+//        JALHeadline *headline = [[JALHeadline alloc] init];
+//        headline.title = title;
+//        headline.sport = @"Sports";
+//        //    headline.URL = @"http://myawesomesite.com/";
+//        
+//        for (NSString *url in parsedURLs) {
+//            //            NSURL *baseURL = [NSURL URLWithString:@"file:///path/to/web_root/"];
+//            //            NSURL *url = [NSURL URLWithString:@"folder/file.html" relativeToURL:baseURL];
+////            NSURL *absURL = url;
+////            headline.URL = absURL;
+//            NSLog(@"in parsed urls\n");
+//            NSLog(@"url: %@\n", url);
+//            headline.URL = url;
+//        }
+//    
+//        
+//    }
     
     UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
     UINavigationController *navigationController = [tabBarController viewControllers][0];
@@ -102,9 +107,9 @@ static NSString *ESPNAPIKey = @"zheuk35rcn3t43ukfgejpwph";
     //    NSArray* parsedHeadlines = [jsonDictionary valueForKeyPath:@"headlines.headline"];
     
     // have 3 arrays, articles titles, sport, and URL
-    NSArray* parsedHeadlines = [jsonDictionary valueForKeyPath:@"headlines.headline"];
-    NSArray* parsedSports = [jsonDictionary valueForKeyPath:@"headlines.categories.description"]; // this is broken
-    NSArray* parsedURLs = [jsonDictionary valueForKeyPath:@"headlines.links.web"];
+    parsedHeadlines = [jsonDictionary valueForKeyPath:@"headlines.headline"];
+    parsedSports = [jsonDictionary valueForKeyPath:@"headlines.categories.description"]; // this is broken
+    parsedURLs = [jsonDictionary valueForKeyPath:@"headlines.links.mobile.href"];
     
     NSLog(@"printing parsedHeadlines\n");
     NSLog(@"%@\n)", parsedHeadlines);

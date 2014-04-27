@@ -77,7 +77,7 @@
         <scene sceneID="ZhG-d4-rBV">
             <objects>
                 <tabBarController definesPresentationContext="YES" id="icU-ys-vPb" sceneMemberID="viewController">
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="psf-T1-qNA">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>

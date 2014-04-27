@@ -126,4 +126,39 @@
 }
 */
 
+#pragma mark = Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    if([super respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)]) {
+        NSLog(@"reachable code?");
+        [tableView deselectRowAtIndexPath:indexPath animated:NO];
+        JALHeadline *tappedItem = [self.headlines objectAtIndex:indexPath.row];
+        NSLog(@"url: %@\n", tappedItem.URL);
+        
+        // open URL in Safari
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:tappedItem.URL]];
+    }
+//    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+//    JALHeadline *tappedItem = [self.headlines objectAtIndex:indexPath.row];
+//    tappedItem.completed = !tappedItem.completed;
+//    [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    
+    // open URL of tapped item in
+    // this is jenky as shit, try to look into fixing.
+//    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:tappedItem.URL]];
+    
+    // remove href from string
+//    static NSRegularExpression *regex;
+//    
+//    regex = [NSRegularExpression regularExpressionWithPattern:@"<a[^>]+href=\"(.*?)\"[^>]*>.*?</a>" options:NSRegularExpressionCaseInsensitive error:nil];;
+//    
+//    NSString* modifiedString = [regex stringByReplacingMatchesInString:tappedItem.URL options:0 range:NSMakeRange(0, [tappedItem.URL length]) withTemplate:@"$1"];
+////    NSLog(@"URL: %@\n", modifiedString);
+//    NSLog(@"test\n");
+
+    
+}
+
 @end
