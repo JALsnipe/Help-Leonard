@@ -18,6 +18,16 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aey-YD-vph">
+                                <rect key="frame" x="132" y="49" width="57" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Tweet it!">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="tweetButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="goo-Bv-Sea"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -85,36 +95,74 @@
                     </tabBar>
                     <connections>
                         <segue destination="tUy-Nv-8dy" kind="relationship" relationship="viewControllers" id="paA-hr-Vzd"/>
-                        <segue destination="X6I-aX-fXc" kind="relationship" relationship="viewControllers" id="XpA-ad-kws"/>
+                        <segue destination="DS4-TL-jIR" kind="relationship" relationship="viewControllers" id="hnd-w9-DSP"/>
                         <segue destination="vXZ-lx-hvc" kind="relationship" relationship="viewControllers" id="Bqu-SP-O1C"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mqa-1Z-0vP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="105" y="107"/>
+            <point key="canvasLocation" x="101" y="117"/>
         </scene>
-        <!--View Controller - Team Headlines-->
-        <scene sceneID="apM-LI-GG7">
+        <!--Team Headlines Table View Controller - Team Headlines-->
+        <scene sceneID="p0f-r8-qOa">
             <objects>
-                <viewController id="X6I-aX-fXc" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="hsT-Z5-2ku">
+                <tableViewController id="e22-l0-ohw" customClass="JALTeamHeadlinesTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ywI-rk-kcl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favorite Team Headlines" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="I9E-mf-xmt">
-                                <rect key="frame" x="66" y="20" width="188" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Team Headlines" id="u32-Wo-uLt"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BSJ-0e-K8p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TeamHeadlineCell" textLabel="YcS-s7-ZNM" detailTextLabel="ndZ-Ax-GSo" style="IBUITableViewCellStyleSubtitle" id="R6s-Or-eRv">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="R6s-Or-eRv" id="4eA-2Q-83R">
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YcS-s7-ZNM">
+                                            <rect key="frame" x="15" y="3" width="34" height="22"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ndZ-Ax-GSo">
+                                            <rect key="frame" x="15" y="25" width="32" height="15"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="e22-l0-ohw" id="e5a-uA-378"/>
+                            <outlet property="delegate" destination="e22-l0-ohw" id="QCx-LE-Nj7"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Team Headlines" id="2e3-QX-59l"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dgj-UV-TIx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="637" y="453"/>
+            <point key="canvasLocation" x="1556" y="454"/>
+        </scene>
+        <!--Navigation Controller - Team Headlines-->
+        <scene sceneID="27D-JG-hdk">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DS4-TL-jIR" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Team Headlines" id="tXO-Hj-rQN"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4H9-rT-xsb">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="e22-l0-ohw" kind="relationship" relationship="rootViewController" id="XLd-xD-HhV"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="peT-m9-bSG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="637" y="454"/>
         </scene>
         <!--Navigation Controller - Headlines-->
         <scene sceneID="QTp-wr-9vN">

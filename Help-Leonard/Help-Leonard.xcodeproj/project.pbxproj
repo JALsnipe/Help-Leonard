@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C4CAE76190D8C2000DCD655 /* JALTeamHeadlinesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C4CAE75190D8C2000DCD655 /* JALTeamHeadlinesTableViewController.m */; };
+		6C4CAE79190D91EB00DCD655 /* JALTeam.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C4CAE78190D91EB00DCD655 /* JALTeam.m */; };
 		6C8911B6190CD060003C889F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C8911B5190CD060003C889F /* Foundation.framework */; };
 		6C8911B8190CD060003C889F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C8911B7190CD060003C889F /* CoreGraphics.framework */; };
 		6C8911BA190CD060003C889F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C8911B9190CD060003C889F /* UIKit.framework */; };
@@ -36,6 +38,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6C4CAE74190D8C2000DCD655 /* JALTeamHeadlinesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JALTeamHeadlinesTableViewController.h; sourceTree = "<group>"; };
+		6C4CAE75190D8C2000DCD655 /* JALTeamHeadlinesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JALTeamHeadlinesTableViewController.m; sourceTree = "<group>"; };
+		6C4CAE77190D91EB00DCD655 /* JALTeam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JALTeam.h; sourceTree = "<group>"; };
+		6C4CAE78190D91EB00DCD655 /* JALTeam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JALTeam.m; sourceTree = "<group>"; };
 		6C8911B2190CD060003C889F /* Help-Leonard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Help-Leonard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C8911B5190CD060003C889F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6C8911B7190CD060003C889F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -123,8 +129,12 @@
 				6C8911C7190CD060003C889F /* Main.storyboard */,
 				6C8911EA190CD6FD003C889F /* JALHeadlinesTableViewController.h */,
 				6C8911ED190CD777003C889F /* JALHeadline.h */,
+				6C4CAE77190D91EB00DCD655 /* JALTeam.h */,
+				6C4CAE78190D91EB00DCD655 /* JALTeam.m */,
 				6C8911EE190CD777003C889F /* JALHeadline.m */,
 				6C8911EB190CD6FD003C889F /* JALHeadlinesTableViewController.m */,
+				6C4CAE74190D8C2000DCD655 /* JALTeamHeadlinesTableViewController.h */,
+				6C4CAE75190D8C2000DCD655 /* JALTeamHeadlinesTableViewController.m */,
 				6C8911CA190CD060003C889F /* JALViewController.h */,
 				6C8911CB190CD060003C889F /* JALViewController.m */,
 				6C8911CD190CD060003C889F /* Images.xcassets */,
@@ -262,6 +272,8 @@
 			files = (
 				6C8911C6190CD060003C889F /* JALAppDelegate.m in Sources */,
 				6C8911EC190CD6FD003C889F /* JALHeadlinesTableViewController.m in Sources */,
+				6C4CAE79190D91EB00DCD655 /* JALTeam.m in Sources */,
+				6C4CAE76190D8C2000DCD655 /* JALTeamHeadlinesTableViewController.m in Sources */,
 				6C8911CC190CD060003C889F /* JALViewController.m in Sources */,
 				6C8911C2190CD060003C889F /* main.m in Sources */,
 				6C8911EF190CD777003C889F /* JALHeadline.m in Sources */,
@@ -469,6 +481,7 @@
 				6C8911E6190CD060003C889F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6C8911E7190CD060003C889F /* Build configuration list for PBXNativeTarget "Help-LeonardTests" */ = {
 			isa = XCConfigurationList;
@@ -477,6 +490,7 @@
 				6C8911E9190CD060003C889F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

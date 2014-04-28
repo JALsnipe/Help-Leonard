@@ -1,19 +1,19 @@
 //
-//  JALHeadlinesTableViewController.m
+//  JALTeamHeadlinesTableViewController.m
 //  Help-Leonard
 //
 //  Created by Josh Lieberman on 4/27/14.
 //  Copyright (c) 2014 Josh Lieberman. All rights reserved.
 //
 
-#import "JALHeadlinesTableViewController.h"
+#import "JALTeamHeadlinesTableViewController.h"
 #import "JALHeadline.h"
 
-@interface JALHeadlinesTableViewController ()
+@interface JALTeamHeadlinesTableViewController ()
 
 @end
 
-@implementation JALHeadlinesTableViewController
+@implementation JALTeamHeadlinesTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -45,6 +45,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+
     // Return the number of sections.
     return 1;
 }
@@ -52,30 +53,21 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.headlines count];
+    return [self.teamHeadlines count];
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HeadlineCell"];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TeamHeadlineCell"];
     
-    JALHeadline *headline = (self.headlines)[indexPath.row];
+    JALHeadline *headline = (self.teamHeadlines)[indexPath.row];
     cell.textLabel.text = headline.title;
     cell.detailTextLabel.text = headline.sport;
     
     return cell;
 }
+
 
 /*
 // Override to support conditional editing of the table view.
@@ -134,13 +126,12 @@
     if([super respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)]) {
         NSLog(@"reachable code?");
         [tableView deselectRowAtIndexPath:indexPath animated:NO];
-        JALHeadline *tappedItem = [self.headlines objectAtIndex:indexPath.row];
+        JALHeadline *tappedItem = [self.teamHeadlines objectAtIndex:indexPath.row];
         NSLog(@"url: %@\n", tappedItem.URL);
         
         // open URL in Safari
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:tappedItem.URL]];
     }
-    
 }
 
 @end
