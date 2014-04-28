@@ -1,6 +1,16 @@
 Help Leonard - iPhone
 ======================
 
+Development Environment
+=======================
+Mac OS X 10.9.2
+
+Xcode Version 5.1.1 (5B1008)
+
+Deployment Target: iOS 7.1
+
+Tested with iPhone 5, iPhone Retina (4-Inch 32-Bit) Simulator 
+
 User Stories
 ============
 **As Leonard, I can view headlines from ESPN, so that I can keep up to date on
