@@ -13,7 +13,7 @@ Safari.
 Plan of attack if I had time:
 
 Add a refresh button.  Pull-to-refresh is very popular and I would have liked
-to research outside libraries to acomplish that.
+to research outside libraries and animations to acomplish that.
 
 **As Leonard, I can select a favorite team, so that I can just read the
 headlines for my favorite team and not get overloaded with information about
@@ -49,11 +49,14 @@ sports news.**
 Yes!  If the user taps the "Tweet it!" button on the Team Info tab, they are
 brought to the twitter app with a draft tweet containing "Hello from Help-
 Leonard! I love the [favorite team name]!"  From there, the user can enter
-their awesome sports analysis.
+their awesome sports analysis.  The user must have the twitter app installed
+on their device for this feature to work.
 
 Plan of attack if I had time:
 
 Attach a URL to a tweet and allow the user to tweet about a specific article.
+Allow the user to compose and send a tweet from within the app (without moving
+haing to move to the official Twitter app) or using the iOS Twitter API.
 
 **As Leonard, I can find tickets to a game, so that I can plan a date for me
 and Penny.**
