@@ -10,6 +10,6 @@
 
 @interface JALHeadlinesTableViewController : UITableViewController
 
-@property (nonatomic, strong) NSMutableArray *headlines;
+@property (nonatomic, strong) NSMutableArray *headlines; //Headlines for first tab
 
 @end

@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		6C4CAE76190D8C2000DCD655 /* JALTeamHeadlinesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C4CAE75190D8C2000DCD655 /* JALTeamHeadlinesTableViewController.m */; };
 		6C4CAE79190D91EB00DCD655 /* JALTeam.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C4CAE78190D91EB00DCD655 /* JALTeam.m */; };
+		6C4CAE88190E075F00DCD655 /* info-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C4CAE87190E075F00DCD655 /* info-25.png */; };
+		6C4CAE8A190E076400DCD655 /* in_love-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C4CAE89190E076400DCD655 /* in_love-25.png */; };
+		6C4CAE8C190E077B00DCD655 /* gps_receiving-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C4CAE8B190E077B00DCD655 /* gps_receiving-25.png */; };
 		6C8911B6190CD060003C889F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C8911B5190CD060003C889F /* Foundation.framework */; };
 		6C8911B8190CD060003C889F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C8911B7190CD060003C889F /* CoreGraphics.framework */; };
 		6C8911BA190CD060003C889F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C8911B9190CD060003C889F /* UIKit.framework */; };
@@ -42,6 +45,9 @@
 		6C4CAE75190D8C2000DCD655 /* JALTeamHeadlinesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JALTeamHeadlinesTableViewController.m; sourceTree = "<group>"; };
 		6C4CAE77190D91EB00DCD655 /* JALTeam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JALTeam.h; sourceTree = "<group>"; };
 		6C4CAE78190D91EB00DCD655 /* JALTeam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JALTeam.m; sourceTree = "<group>"; };
+		6C4CAE87190E075F00DCD655 /* info-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info-25.png"; sourceTree = "<group>"; };
+		6C4CAE89190E076400DCD655 /* in_love-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "in_love-25.png"; sourceTree = "<group>"; };
+		6C4CAE8B190E077B00DCD655 /* gps_receiving-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gps_receiving-25.png"; sourceTree = "<group>"; };
 		6C8911B2190CD060003C889F /* Help-Leonard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Help-Leonard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C8911B5190CD060003C889F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6C8911B7190CD060003C889F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -91,6 +97,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6C4CAE7A190E062D00DCD655 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				6C4CAE8B190E077B00DCD655 /* gps_receiving-25.png */,
+				6C4CAE89190E076400DCD655 /* in_love-25.png */,
+				6C4CAE87190E075F00DCD655 /* info-25.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		6C8911A9190CD060003C889F = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +162,7 @@
 		6C8911BC190CD060003C889F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6C4CAE7A190E062D00DCD655 /* Images */,
 				6C8911BD190CD060003C889F /* Help-Leonard-Info.plist */,
 				6C8911BE190CD060003C889F /* InfoPlist.strings */,
 				6C8911C1190CD060003C889F /* main.m */,
@@ -250,8 +267,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C8911CE190CD060003C889F /* Images.xcassets in Resources */,
+				6C4CAE88190E075F00DCD655 /* info-25.png in Resources */,
 				6C8911C0190CD060003C889F /* InfoPlist.strings in Resources */,
 				6C8911C9190CD060003C889F /* Main.storyboard in Resources */,
+				6C4CAE8C190E077B00DCD655 /* gps_receiving-25.png in Resources */,
+				6C4CAE8A190E076400DCD655 /* in_love-25.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

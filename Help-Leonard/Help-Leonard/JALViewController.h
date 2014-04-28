@@ -10,5 +10,7 @@
 
 @interface JALViewController : UIViewController
 - (IBAction)tweetButton:(id)sender;
+- (IBAction)teamURLButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextField *teamTextField;
 
 @end

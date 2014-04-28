@@ -127,15 +127,14 @@
 */
 
 #pragma mark = Table view delegate
-
+// This method handles opening an article in Safari if a user taps on a table cell containing an article
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
     if([super respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)]) {
-        NSLog(@"reachable code?");
         [tableView deselectRowAtIndexPath:indexPath animated:NO];
         JALHeadline *tappedItem = [self.headlines objectAtIndex:indexPath.row];
-        NSLog(@"url: %@\n", tappedItem.URL);
+//        NSLog(@"url: %@\n", tappedItem.URL);
         
         // open URL in Safari
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:tappedItem.URL]];

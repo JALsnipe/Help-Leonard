@@ -10,6 +10,6 @@
 
 @interface JALTeamHeadlinesTableViewController : UITableViewController
 
-@property (nonatomic, strong) NSMutableArray *teamHeadlines;
+@property (nonatomic, strong) NSMutableArray *teamHeadlines; // Team-sepcific headlines for Favorite Team tab
 
 @end

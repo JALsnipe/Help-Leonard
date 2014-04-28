@@ -13,7 +13,7 @@
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *location;
 @property (nonatomic, copy) NSString *league;
-@property (nonatomic, copy) NSString *teamID; // does this need to be int?  cast to int later?
+@property (nonatomic, copy) NSString *teamID;
 @property (nonatomic, copy) NSString *sport;
 
 @end

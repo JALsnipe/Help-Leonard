@@ -15,14 +15,20 @@
 
 static NSString *ESPNAPIKey = @"zheuk35rcn3t43ukfgejpwph";
 
+// These are global variables because the various methods below need access to them.
+// There is probably a better way to do this, however this is how I implemented my current solution.
+
+// Headline info (tab 1)
 NSArray *parsedHeadlines;
 NSArray *parsedSports;
 NSArray *parsedURLs;
 
+// Team and Team Headline info (tab 2 + 3)
 NSString *teamID;
 NSString *teamSport;
 NSString *teamLeague;
 NSString *teamName;
+NSString *teamURL;
 
 @implementation JALAppDelegate
 {
@@ -37,16 +43,9 @@ NSString *teamName;
     _headlines = [NSMutableArray arrayWithCapacity:20];
     _teamHeadlines = [NSMutableArray arrayWithCapacity:20];
     
-    // for headline in parsedHeadlines
-    // alloc headline object
-    // add headline to object
-    // add sport dummy type to object
-    // add url to object
-    
     // get headlines
     NSLog(@"trying to get headlines...\n");
     [self getHeadlines];
-    NSLog(@"end of trying to get headlines...\n");
 
     // parallel arrays aren't the best programming paradigm
     // I'm also assuming that my API call won't screw up, and I'll get the same number
@@ -54,6 +53,12 @@ NSString *teamName;
     // TODO: implement checks.
     
     // add url and headline to table
+    
+    // for headline in parsedHeadlines
+    // alloc headline object
+    // add headline to object
+    // add sport dummy type to object
+    // add url to object
     NSLog(@"adding url and headline to table...\n");
     for(int i = 0; i < [parsedHeadlines count]; i++) {
         JALHeadline *headline = [[JALHeadline alloc] init];
@@ -79,16 +84,13 @@ NSString *teamName;
     NSLog(@"getting team headlines...\n");
     [self getTeamHeadlines];
     
-    // Headline controller
-//    UITabBarController *tabBarControllerTeam = (UITabBarController *)self.window.rootViewController;
-//    UINavigationController *navigationControllerTeam = [tabBarControllerTeam viewControllers][0];
-//    JALHeadlinesTableViewController *headlinesViewControllerTeam = [navigationControllerTeam viewControllers][0];
-//    headlinesViewControllerTeam.headlines = _teamHeadlines;
-    
-//    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+    // Team Headline controller
     UINavigationController *navigationControllerTeam = [tabBarController viewControllers][1];
     JALTeamHeadlinesTableViewController *headlinesViewControllerTeam = [navigationControllerTeam viewControllers][0];
     headlinesViewControllerTeam.teamHeadlines = _teamHeadlines;
+    
+    // get team info for third tab
+    [self getTeamInfo];
     
     return YES;
 }
@@ -96,13 +98,12 @@ NSString *teamName;
 - (void)getHeadlines
 {
     // Get headlines from ESPN Headline API
-    //-- Make URL request with server
     NSHTTPURLResponse *response = nil;
     NSString *jsonUrlString = [NSString stringWithFormat:@"http://api.espn.com/v1/sports/news/headlines?apikey=%@", ESPNAPIKey];
     
     NSURL *url = [NSURL URLWithString:[jsonUrlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     
-    //-- Get request and response though URL
+    // request and response
     NSURLRequest *request = [[NSURLRequest alloc]initWithURL:url];
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
     
@@ -147,15 +148,14 @@ NSString *teamName;
     teamLeague = favTeam.league;
     teamName = favTeam.name;
     
-    //http://api.espn.com/v1/sports/baseball/mlb/teams/?apikey=zheuk35rcn3t43ukfgejpwph
     // set up API call
     NSHTTPURLResponse *response = nil;
     NSString *jsonUrlString = [NSString stringWithFormat:@"http://api.espn.com/v1/sports/%@/%@/teams/?apikey=%@", favTeam.sport, favTeam.league, ESPNAPIKey];
     
-    // ecnode URL
+    // encode URL
     NSURL *url = [NSURL URLWithString:[jsonUrlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     
-    //-- Get request and response though URL
+    // request and response
     NSURLRequest *request = [[NSURLRequest alloc]initWithURL:url];
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
     
@@ -177,16 +177,11 @@ NSString *teamName;
 //    teamID = [objectsOrNil[0] objectForKey:(favTeam.name)];
 //    teamID = [jsonDictionary objectForKey:favTeam.name];
     
-//    NSLog(@"first dict\n");
-//    NSDictionary* teamInfo = [jsonDictionary valueForKeyPath:@"sports.leagues.teams"]; // gets all team objects
     NSArray *teamInfo = [jsonDictionary valueForKeyPath:@"sports.leagues.teams.name"]; // gets all team objects
-
-//    NSLog(@"team info: %@\n", teamInfo);
     
     // I'm struggling with the JSON here.  This is a jenky workaround to get each team as a single
     // string element in an NSArray.
     NSArray *teamParsed = teamInfo[0][0];
-//    NSLog(@"teamParsed: %@\n", teamParsed);
     
     // there should be a way to just get the Yankee object, not sure how to do that.
     
@@ -211,16 +206,13 @@ NSString *teamName;
 - (void)getTeamHeadlines
 {
     // Get headlines from ESPN Headline API
-    //-- Make URL request with server
-    
-    // http://api.espn.com/v1/sports/baseball/mlb/news/?teams=10&apikey=zheuk35rcn3t43ukfgejpwph
+
     NSHTTPURLResponse *response = nil;
     NSString *jsonUrlString = [NSString stringWithFormat:@"http://api.espn.com/v1/sports/%@/%@/news/?teams=%@&apikey=%@", teamSport, teamLeague, teamID, ESPNAPIKey];
     
     NSURL *url = [NSURL URLWithString:[jsonUrlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-    NSLog(@"url: %@\n", url);
     
-    //-- Get request and response though URL
+    // request and response
     NSURLRequest *request = [[NSURLRequest alloc]initWithURL:url];
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
     
@@ -259,9 +251,46 @@ NSString *teamName;
     }
 }
 
+-(void)getTeamInfo
+{
+    // http://api.espn.com/v1/sports/baseball/mlb/teams/10?apikey=zheuk35rcn3t43ukfgejpwph
+    // http://api.espn.com/v1/sports/baseball/mlb/teams/10&?apikey=zheuk35rcn3t43ukfgejpwph
+    // Get headlines from ESPN Headline API
+    
+    NSHTTPURLResponse *response = nil;
+    NSString *jsonUrlString = [NSString stringWithFormat:@"http://api.espn.com/v1/sports/%@/%@/teams/%@?apikey=%@", teamSport, teamLeague, teamID, ESPNAPIKey];
+    
+    NSURL *url = [NSURL URLWithString:[jsonUrlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    
+    // request and response
+    NSURLRequest *request = [[NSURLRequest alloc]initWithURL:url];
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+    
+    NSError *error = [[NSError alloc] init];
+    
+    // error handling
+    // TODO: Have an alert pop up to the user saying there was an issue retrieving headlines
+    if([response statusCode] != 200){
+        NSLog(@"Error getting %@, HTTP status code %i", url, [response statusCode]);
+    }
+    
+    //Hopefully we succeeded
+    NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&error];
+    
+    //sports.leagues.teams.links.mobile.teams.href
+    teamURL = [jsonDictionary valueForKeyPath:@"sports.leagues.teams.links.mobile.teams.href"][0][0][0];
+    
+}
+
+// Allow app to access team name variable outside of the AppDelegate
 -(NSString *)getTeamName
 {
     return teamName;
+}
+
+-(NSString *)getTeamURL
+{
+    return teamURL;
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

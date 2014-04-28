@@ -13,13 +13,13 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favorite Team Info" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="n1Z-jJ-iX1">
-                                <rect key="frame" x="89" y="20" width="142" height="21"/>
+                                <rect key="frame" x="89" y="33" width="142" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aey-YD-vph">
-                                <rect key="frame" x="132" y="49" width="57" height="30"/>
+                                <rect key="frame" x="132" y="214" width="57" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Tweet it!">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -28,11 +28,37 @@
                                     <action selector="tweetButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="goo-Bv-Sea"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Favorite Team Is:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="j4a-WL-WpW">
+                                <rect key="frame" x="81" y="110" width="159" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6qQ-CA-qGZ">
+                                <rect key="frame" x="120" y="176" width="80" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Team News">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="teamURLButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ieN-OR-aNQ"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="_team_" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" id="OF1-w2-tr7">
+                                <rect key="frame" x="71" y="139" width="179" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Team Info" id="Eg5-yd-ZLB"/>
+                    <tabBarItem key="tabBarItem" title="Team Info" image="info-25.png" id="Eg5-yd-ZLB"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="teamTextField" destination="OF1-w2-tr7" id="d3a-kn-dd9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
@@ -152,7 +178,7 @@
         <scene sceneID="27D-JG-hdk">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DS4-TL-jIR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Team Headlines" id="tXO-Hj-rQN"/>
+                    <tabBarItem key="tabBarItem" title="Team Headlines" image="in_love-25.png" id="tXO-Hj-rQN"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4H9-rT-xsb">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -168,7 +194,7 @@
         <scene sceneID="QTp-wr-9vN">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tUy-Nv-8dy" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Headlines" id="3qf-av-01g"/>
+                    <tabBarItem key="tabBarItem" title="Headlines" image="gps_receiving-25.png" id="3qf-av-01g"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lfN-JS-E0z">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -184,6 +210,11 @@
             <point key="canvasLocation" x="637" y="-221"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="gps_receiving-25.png" width="25" height="25"/>
+        <image name="in_love-25.png" width="25" height="25"/>
+        <image name="info-25.png" width="25" height="25"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
