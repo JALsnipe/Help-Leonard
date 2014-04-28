@@ -69,8 +69,8 @@ Use the Seat Geek API to find future game information on the user's favorite
 team.  Possibly even use location-based information to track distance and
 directions to the closest stadium or venue.
 
-Additional Notes:
-=================
+Additional Notes
+================
 Lots of the logic is done in the AppDelegate implementation file.  Although I
 split some of the calls into separate methods, I did recycle some code between
 methods.  It might have been better to create general methods for the API calls
